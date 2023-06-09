@@ -15,7 +15,7 @@ export const slashCommandEvent: Event = {
     try {
       await command.execute(interaction);
     } catch (error) {
-      logger.error(error);
+      logger.error('slash command handler error\n' + error);
     }
   },
 };
