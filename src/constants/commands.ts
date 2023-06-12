@@ -17,11 +17,19 @@ enum CommandName {
   PLAYLIST_SUB_SONG_LIST = '곡목록',
   PLAYLIST_SUB_SONG_ADD = '곡추가',
   PLAYLIST_SUB_SONG_DELETE = '곡삭제',
+  NOTICE = '공지',
+  NOTICE_SUB_LIST = '목록',
+  NOTICE_SUB_ADD = '등록',
+  NOTICE_SUB_DELETE = '삭제',
+  NOTICE_SUB_CHANGE_PERIOD = '노출시간',
+  NOTICE_SUB_CATEGORY_LIST = '카테고리목록',
+  NOTICE_SUB_CATEGORY_ADD = '카테고리추가',
+  NOTICE_SUB_CATEGORY_DELETE = '카테고리삭제',
 }
 
 enum OptionId {
   QNA_ID = 'question_id',
-  QNA_CATEGORY_NAME = 'category_name',
+  CATEGORY_NAME = 'category_name',
   PLAYLIST_KEY = 'playlist_key',
   SONG_ID = 'song_id',
   PLAYLIST_SQUARE = 'playlist_square',
