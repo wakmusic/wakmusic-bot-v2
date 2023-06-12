@@ -33,4 +33,7 @@ export class RecommendedPlaylistEntity extends BaseEntity {
 
   @Column({ name: 'create_at', type: 'bigint' })
   createAt: number;
+
+  @Column({ type: 'bigint' })
+  order: number;
 }

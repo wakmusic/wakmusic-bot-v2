@@ -4,6 +4,7 @@ import { Modal } from '../../templates';
 import Container from 'typedi';
 import { PlaylistService } from '../../services';
 import { logger } from '../../utils';
+import { moment } from '../../configs/moment.config';
 
 const playlistAddModal: Modal = {
   id: ModalName.PLAYLIST_ADD,
@@ -26,11 +27,31 @@ const playlistAddModal: Modal = {
       });
       return;
     }
-
+    let order = 1;
+    const lastPlaylist = await playlistService.findLast();
+    if (lastPlaylist !== null) {
+      order = lastPlaylist.order + 1;
+    }
     try {
       await playlistService.add({
         key: platlistId,
         title: playlistName,
+        createAt: moment().valueOf(),
+        order,
+      });
+
+      const createdPlaylist = await playlistService.findOneByKey(platlistId);
+      if (createdPlaylist === null) {
+        await interaction.editReply({
+          content: '재생목록을 생성하지 못했습니다.',
+        });
+        return;
+      }
+
+      await playlistService.addImage({
+        playlist: createdPlaylist,
+        square: 0,
+        round: 0,
       });
     } catch (error) {
       logger.error(error);

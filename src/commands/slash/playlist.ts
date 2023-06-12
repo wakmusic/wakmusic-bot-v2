@@ -86,6 +86,40 @@ const playlistCommand: SlashCommand = {
             .setRequired(true)
         )
     )
+    .addSubcommand((subcommand) =>
+      subcommand
+        .setName(CommandName.PLAYLIST_SUB_UPLOAD_SQUARE)
+        .setDescription('플레이리스트 사각형 아이콘을 업로드합니다.')
+        .addStringOption((option) =>
+          option
+            .setName(OptionId.PLAYLIST_KEY)
+            .setDescription('재생목록 고유 Id')
+            .setRequired(true)
+        )
+        .addAttachmentOption((option) =>
+          option
+            .setName(OptionId.PLAYLIST_SQUARE)
+            .setDescription('아이콘 파일')
+            .setRequired(true)
+        )
+    )
+    .addSubcommand((subcommand) =>
+      subcommand
+        .setName(CommandName.PLAYLIST_SUB_UPLOAD_ROUND)
+        .setDescription('플레이리스트 원형 아이콘을 업로드합니다.')
+        .addStringOption((option) =>
+          option
+            .setName(OptionId.PLAYLIST_KEY)
+            .setDescription('재생목록 고유 Id')
+            .setRequired(true)
+        )
+        .addAttachmentOption((option) =>
+          option
+            .setName(OptionId.PLAYLIST_ROUND)
+            .setDescription('아이콘 파일')
+            .setRequired(true)
+        )
+    )
     .toJSON(),
   execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
     const subCommandName = interaction.options.getSubcommand(true);

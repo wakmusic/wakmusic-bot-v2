@@ -11,6 +11,7 @@ import {
 } from 'discord.js';
 import { ModalName, ModalOptionId } from '../constants';
 import { RecommendedPlaylistSongEntity } from '../entitys/main/recommendedPlaylistSong.entity';
+import { RecommendedPlaylistImageEntity } from '../entitys/main/recommendedPlaylistImage.entity';
 
 @Service()
 export class PlaylistService {
@@ -39,6 +40,15 @@ export class PlaylistService {
       .getOne();
   }
 
+  async findLast(): Promise<RecommendedPlaylistEntity | null> {
+    return await this.mainDataSource
+      .createQueryBuilder()
+      .select('playlist')
+      .from(RecommendedPlaylistEntity, 'playlist')
+      .orderBy('playlist.order', 'DESC')
+      .getOne();
+  }
+
   async findAll(): Promise<Array<RecommendedPlaylistEntity>> {
     return await this.mainDataSource
       .createQueryBuilder(RecommendedPlaylistEntity, 'playlist')
@@ -63,6 +73,17 @@ export class PlaylistService {
       .execute();
   }
 
+  async addImage(
+    entity: Partial<RecommendedPlaylistImageEntity>
+  ): Promise<void> {
+    await this.mainDataSource
+      .createQueryBuilder()
+      .insert()
+      .into(RecommendedPlaylistImageEntity)
+      .values(entity)
+      .execute();
+  }
+
   async remove(id: number): Promise<void> {
     await this.mainDataSource
       .createQueryBuilder(RecommendedPlaylistEntity, 'playlist')
@@ -81,6 +102,18 @@ export class PlaylistService {
       .execute();
   }
 
+  async updateImage(
+    id: number,
+    entity: Partial<RecommendedPlaylistImageEntity>
+  ): Promise<void> {
+    await this.mainDataSource
+      .createQueryBuilder()
+      .update(RecommendedPlaylistImageEntity)
+      .set(entity)
+      .where('id = :id', { id })
+      .execute();
+  }
+
   async updatePublic(key: string, isPublic: boolean): Promise<void> {
     await this.mainDataSource
       .createQueryBuilder(RecommendedPlaylistEntity, 'playlist')
@@ -90,6 +123,16 @@ export class PlaylistService {
       })
       .where('key = :key', { key })
       .execute();
+  }
+
+  createImage(
+    playlist: RecommendedPlaylistEntity
+  ): Partial<RecommendedPlaylistImageEntity> {
+    return {
+      playlist: playlist,
+      square: 1,
+      round: 1,
+    };
   }
 
   calSongOrder(songs: Array<RecommendedPlaylistSongEntity>): number {

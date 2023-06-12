@@ -7,6 +7,8 @@ import { playlistSongListCommand } from './songList';
 import { playlistSongAddCommand } from './songAdd';
 import { playlistSongDeleteCommand } from './songDelete';
 import { playlistTogglePublicCommand } from './togglePublic';
+import { playlistUploadSquareCommand } from './uploadSquare';
+import { playlistUploadRoundCommand } from './uploadRound';
 
 const playlistSubCommandList: Array<SubCommand> = [
   playlistListCommand,
@@ -16,6 +18,8 @@ const playlistSubCommandList: Array<SubCommand> = [
   playlistSongAddCommand,
   playlistSongDeleteCommand,
   playlistTogglePublicCommand,
+  playlistUploadSquareCommand,
+  playlistUploadRoundCommand,
 ];
 const playlistSubCommands = new Collection<string, SubCommand>();
 

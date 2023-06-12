@@ -24,6 +24,8 @@ enum OptionId {
   QNA_CATEGORY_NAME = 'category_name',
   PLAYLIST_KEY = 'playlist_key',
   SONG_ID = 'song_id',
+  PLAYLIST_SQUARE = 'playlist_square',
+  PLAYLIST_ROUND = 'playlist_round',
 }
 
 enum ModalName {
