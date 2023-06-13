@@ -5,8 +5,8 @@ import Container from 'typedi';
 import { CategoryService } from '../../../services';
 import { logger } from '../../../utils';
 
-const qnaCategoryDeleteCommand: SubCommand = {
-  name: CommandName.QNA_SUB_CATEGORY_DELETE,
+const noticeCategoryDeleteCommand: SubCommand = {
+  name: CommandName.NOTICE_SUB_CATEGORY_DELETE,
   execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
     await interaction.deferReply();
 
@@ -18,7 +18,7 @@ const qnaCategoryDeleteCommand: SubCommand = {
     );
 
     const category = await categoryService.findOneByTypeAndName(
-      'qna',
+      'notice',
       categoryName
     );
     if (category === null) {
@@ -43,4 +43,4 @@ const qnaCategoryDeleteCommand: SubCommand = {
   },
 };
 
-export { qnaCategoryDeleteCommand };
+export { noticeCategoryDeleteCommand };

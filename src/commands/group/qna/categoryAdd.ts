@@ -13,7 +13,7 @@ const qnaCategoryAddCommand: SubCommand = {
     const categoryService = Container.get(CategoryService);
 
     const categoryName = interaction.options.getString(
-      OptionId.QNA_CATEGORY_NAME,
+      OptionId.CATEGORY_NAME,
       true
     );
 

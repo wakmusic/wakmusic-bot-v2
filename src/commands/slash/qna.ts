@@ -55,7 +55,7 @@ const qnaCommand: SlashCommand = {
         .setDescription('Q&A 카테고리를 추가합니다.')
         .addStringOption((option) =>
           option
-            .setName(OptionId.QNA_CATEGORY_NAME)
+            .setName(OptionId.CATEGORY_NAME)
             .setDescription('Q&A 카테고리 이름')
             .setRequired(true)
         )
@@ -66,7 +66,7 @@ const qnaCommand: SlashCommand = {
         .setDescription('Q&A 카테고리를 삭제합니다.')
         .addStringOption((option) =>
           option
-            .setName(OptionId.QNA_CATEGORY_NAME)
+            .setName(OptionId.CATEGORY_NAME)
             .setDescription('Q&A 카테고리 이름')
             .setRequired(true)
         )

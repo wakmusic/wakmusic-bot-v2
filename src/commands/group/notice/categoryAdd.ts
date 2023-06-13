@@ -5,8 +5,8 @@ import Container from 'typedi';
 import { CategoryService } from '../../../services';
 import { logger } from '../../../utils';
 
-const qnaCategoryDeleteCommand: SubCommand = {
-  name: CommandName.QNA_SUB_CATEGORY_DELETE,
+const noticeCategoryAddCommand: SubCommand = {
+  name: CommandName.NOTICE_SUB_CATEGORY_ADD,
   execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
     await interaction.deferReply();
 
@@ -18,29 +18,32 @@ const qnaCategoryDeleteCommand: SubCommand = {
     );
 
     const category = await categoryService.findOneByTypeAndName(
-      'qna',
+      'notice',
       categoryName
     );
-    if (category === null) {
-      await interaction.editReply({ content: '존재하지 않는 카테고리입니다.' });
+    if (category !== null) {
+      await interaction.editReply({ content: '이미 존재하는 카테고리입니다.' });
       return;
     }
 
     try {
-      await categoryService.remove(category.id);
+      await categoryService.add({
+        type: 'notice',
+        category: categoryName,
+      });
     } catch (error) {
       logger.error(error);
 
       await interaction.editReply({
-        content: '카테고리를 삭제하지 못했습니다.',
+        content: '카테고리를 추가하지 못했습니다.',
       });
       return;
     }
 
     await interaction.editReply({
-      content: `(\`${category.category}\`)(을)를 삭제하였습니다.`,
+      content: `(\`${categoryName}\`)(이)가 추가되었습니다.`,
     });
   },
 };
 
-export { qnaCategoryDeleteCommand };
+export { noticeCategoryAddCommand };

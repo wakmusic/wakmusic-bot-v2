@@ -3,6 +3,7 @@ import { Service } from 'typedi';
 import { UploadOptions } from '../templates/interfaces/UploadOption';
 import { logger } from '../utils';
 import axios from 'axios';
+import { moment } from '../configs/moment.config';
 
 @Service()
 export class FileService {
@@ -38,6 +39,29 @@ export class FileService {
       logger.error(error);
       return null;
     }
+  }
+
+  async uploadManyImage(
+    path: string,
+    urls: Array<string>
+  ): Promise<Array<string | null>> {
+    const results = [];
+    const currentTime = moment().valueOf();
+    let idx = 0;
+    for (const url of urls) {
+      const arrayData = await this.downloadFromURL(url);
+
+      idx += 1;
+      results.push(
+        await this.uploadImage({
+          data: arrayData,
+          path: path,
+          fileName: `${currentTime}_${idx}`,
+          fileType: 'png',
+        })
+      );
+    }
+    return results;
   }
 
   async downloadFromURL(url: string): Promise<Uint8Array> {
