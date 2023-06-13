@@ -34,12 +34,15 @@ enum OptionId {
   SONG_ID = 'song_id',
   PLAYLIST_SQUARE = 'playlist_square',
   PLAYLIST_ROUND = 'playlist_round',
+  NOTICE_ID = 'notice_id',
+  NOTICE_PERIOD = 'notice_period',
 }
 
 enum ModalName {
   QNA_ADD = 'qna_add',
   QNA_CHANGE = 'qna_change',
   PLAYLIST_ADD = 'playlist_add',
+  NOTICE_ADD = 'notice_add',
 }
 
 enum ModalOptionId {
@@ -49,6 +52,12 @@ enum ModalOptionId {
   QNA_ANSWER = 'qna_answer',
   PLAYLIST_ID = 'playlist_id',
   PLAYLIST_NAME = 'playlist_name',
+  NOTICE_ID = 'notice_id',
+  NOTICE_CATEGORY = 'notice_category',
+  NOTICE_TITLE = 'notice_title',
+  NOTICE_MAIN_TEXT = 'notice_main_text',
+  NOTICE_IMAGES = 'notice_images',
+  NOTICE_START_DATE = 'notice_start_date',
 }
 
 export { CommandName, OptionId, ModalName, ModalOptionId };
