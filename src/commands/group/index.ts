@@ -1,5 +1,6 @@
 import { SubCommand } from '../../templates';
 import { logger } from '../../utils';
+import { loadLyricsCommands } from './lyrics';
 import { loadNoticeCommands } from './notice';
 import { loadPlaylistCommands } from './playlist';
 import { loadQnaCommands } from './qna';
@@ -9,6 +10,7 @@ const subCommandLoaders: Array<() => Promise<void>> = [
   loadQnaCommands,
   loadPlaylistCommands,
   loadNoticeCommands,
+  loadLyricsCommands,
 ];
 
 const loadAllSubCommands = async (): Promise<void> => {

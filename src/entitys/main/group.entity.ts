@@ -6,7 +6,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { ArtistEntity } from './artistEntity';
+import { ArtistEntity } from './artist.entity';
 
 @Entity({ name: 'group' })
 export class GroupEntity extends BaseEntity {

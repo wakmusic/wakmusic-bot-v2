@@ -25,6 +25,9 @@ enum CommandName {
   NOTICE_SUB_CATEGORY_LIST = '카테고리목록',
   NOTICE_SUB_CATEGORY_ADD = '카테고리추가',
   NOTICE_SUB_CATEGORY_DELETE = '카테고리삭제',
+  LYRICS = '가사',
+  LYRICS_SUB_UPLOAD = '업로드',
+  LYRICS_SUB_DEPLOY = '배포',
 }
 
 enum OptionId {
@@ -36,6 +39,7 @@ enum OptionId {
   PLAYLIST_ROUND = 'playlist_round',
   NOTICE_ID = 'notice_id',
   NOTICE_PERIOD = 'notice_period',
+  LYRICS_FILE = 'lyrics_file',
 }
 
 enum ModalName {
