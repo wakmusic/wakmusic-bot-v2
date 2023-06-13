@@ -3,11 +3,13 @@ import { SlashCommand } from '../../templates';
 import { qnaCommand } from './qna';
 import { playlistCommand } from './playlist';
 import { noticeCommand } from './notice';
+import { lyricsCommand } from './lyrics';
 
 const slashCommandList: Array<SlashCommand> = [
   qnaCommand,
   playlistCommand,
   noticeCommand,
+  lyricsCommand,
 ];
 const slashCommands: Collection<string, SlashCommand> = new Collection<
   string,

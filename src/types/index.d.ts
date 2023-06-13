@@ -12,5 +12,6 @@ declare namespace NodeJS {
     R2_ACCESS_KEY_ID: string;
     R2_SECRET_ACCESS_KEY: string;
     R2_BASE_URL: string;
+    LYRICS_PATH: string;
   }
 }

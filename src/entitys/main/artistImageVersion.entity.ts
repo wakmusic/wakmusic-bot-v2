@@ -6,7 +6,7 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { ArtistEntity } from './artistEntity';
+import { ArtistEntity } from './artist.entity';
 
 @Entity({ name: 'artist_image_version' })
 export class ArtistImageVersionEntity extends BaseEntity {

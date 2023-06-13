@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { NewsEntity } from '../entitys/main/news.entity';
 import { NoticeEntity } from '../entitys/main/notice.entity';
 import { QnaEntity } from '../entitys/main/qna.entity';
-import { ArtistEntity } from '../entitys/main/artistEntity';
+import { ArtistEntity } from '../entitys/main/artist.entity';
 import { ArtistImageVersionEntity } from '../entitys/main/artistImageVersion.entity';
 import { CategoryEntity } from '../entitys/main/category.entity';
 import { ChartDailyEntity } from '../entitys/main/chartDaily.entity';
