@@ -1,4 +1,8 @@
-import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
+import {
+  ChatInputCommandInteraction,
+  GuildMember,
+  SlashCommandBuilder,
+} from 'discord.js';
 import { SlashCommand } from '../../templates';
 import { CommandName, OptionId } from '../../constants';
 import { qnaSubCommands } from '../group/qna';
@@ -78,6 +82,14 @@ const qnaCommand: SlashCommand = {
 
     const subCommand = qnaSubCommands.get(subCommandName);
     if (subCommand === undefined) return;
+
+    const member = interaction.member as GuildMember;
+    if (!member.roles.cache.has(process.env.PERMISSION)) {
+      await interaction.reply({
+        content: '권한이 없습니다.',
+      });
+      return;
+    }
 
     await subCommand.execute(interaction);
   },

@@ -1,4 +1,8 @@
-import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
+import {
+  ChatInputCommandInteraction,
+  GuildMember,
+  SlashCommandBuilder,
+} from 'discord.js';
 import { CommandName, OptionId } from '../../constants';
 import { SlashCommand } from '../../templates';
 import { lyricsSubCommands } from '../group/lyrics';
@@ -44,6 +48,14 @@ const lyricsCommand: SlashCommand = {
 
     const subCommand = lyricsSubCommands.get(subCommandName);
     if (subCommand === undefined) return;
+
+    const member = interaction.member as GuildMember;
+    if (!member.roles.cache.has(process.env.LYRICS_PERMISSION)) {
+      await interaction.reply({
+        content: '권한이 없습니다.',
+      });
+      return;
+    }
 
     await subCommand.execute(interaction);
   },

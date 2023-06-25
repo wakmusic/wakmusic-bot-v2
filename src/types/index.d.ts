@@ -13,5 +13,7 @@ declare namespace NodeJS {
     R2_SECRET_ACCESS_KEY: string;
     R2_BASE_URL: string;
     LYRICS_PATH: string;
+    PERMISSION: string;
+    LYRICS_PERMISSION: string;
   }
 }
