@@ -45,7 +45,11 @@ export class UserEntity extends BaseEntity {
   @OneToOne(() => UserLikeEntity, (likes) => likes.user)
   likes: UserLikeEntity;
 
-  @OneToOne(() => UserPermissionEntity, (permission) => permission.user)
+  @ManyToOne(() => UserPermissionEntity, (permission) => permission.id, {
+    onUpdate: 'CASCADE',
+    onDelete: 'SET NULL',
+  })
+  @JoinColumn({ name: 'permission_id', referencedColumnName: 'id' })
   permission: UserPermissionEntity;
 
   @Column({ name: 'create_at', type: 'bigint' })

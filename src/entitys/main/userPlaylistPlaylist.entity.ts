@@ -23,10 +23,10 @@ export class UserPlaylistPlaylistEntity extends BaseEntity {
       onDelete: 'CASCADE',
     }
   )
-  @JoinColumn({ name: 'user_playlists_id', referencedColumnName: 'id' })
+  @JoinColumn({ name: 'user_playlist_id', referencedColumnName: 'id' })
   userPlaylist: UserPlaylistEntity;
 
-  @Column({ name: 'user_playlists_id', type: 'bigint' })
+  @Column({ name: 'user_playlist_id', type: 'bigint' })
   userPlaylistId: number;
 
   @OneToOne(() => PlaylistEntity, (playlist) => playlist.id, {
