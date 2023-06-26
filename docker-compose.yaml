@@ -8,5 +8,6 @@ services:
     restart: on-failure
     volumes:
       - ./logs:/usr/src/app/logs
+      - /home/ubuntu/wakmusic-lyrics/static:/home/ubuntu/wakmusic-lyrics/static
     env_file:
       - .env
