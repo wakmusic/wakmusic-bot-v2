@@ -101,6 +101,7 @@ export class NoticeService {
       style: TextInputStyle.Paragraph,
       label: '본문',
       placeholder: '본문을 입력해 주세요.',
+      required: false,
     });
     const images = new TextInputBuilder({
       customId: ModalOptionId.NOTICE_IMAGES,
