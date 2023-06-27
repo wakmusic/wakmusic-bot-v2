@@ -19,6 +19,15 @@ export class SongService {
   }
 
   async addLyrics(songId: string): Promise<void> {
+    if (
+      await this.mainDataSource
+        .createQueryBuilder()
+        .select()
+        .from(LyricsEntity, 'lyrics')
+        .where('lyrics.key = :songId', { songId })
+        .getExists()
+    )
+      return;
     await this.mainDataSource
       .createQueryBuilder()
       .insert()

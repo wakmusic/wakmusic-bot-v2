@@ -34,6 +34,7 @@ import { UserPlaylistEntity } from '../entitys/main/userPlaylist.entity';
 import { UserPlaylistPlaylistEntity } from '../entitys/main/userPlaylistPlaylist.entity';
 import { EventEntity } from '../entitys/app/event.entity';
 import { VersionEntity } from '../entitys/app/version.entity';
+import { LyricsEntity } from '../entitys/main/lyrics.entity';
 
 dotenv.config();
 
@@ -79,6 +80,7 @@ const mainDatabase: DataSource = new DataSource({
     UserPermissionEntity,
     UserPlaylistEntity,
     UserPlaylistPlaylistEntity,
+    LyricsEntity,
   ],
 });
 
