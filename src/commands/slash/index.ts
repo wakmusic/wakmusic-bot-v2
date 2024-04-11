@@ -4,12 +4,14 @@ import { qnaCommand } from './qna';
 import { playlistCommand } from './playlist';
 import { noticeCommand } from './notice';
 import { lyricsCommand } from './lyrics';
+import { indecisionCommand } from './indecision';
 
 const slashCommandList: Array<SlashCommand> = [
   qnaCommand,
   playlistCommand,
   noticeCommand,
   lyricsCommand,
+  indecisionCommand,
 ];
 const slashCommands: Collection<string, SlashCommand> = new Collection<
   string,

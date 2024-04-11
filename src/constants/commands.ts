@@ -28,6 +28,7 @@ enum CommandName {
   LYRICS = '가사',
   LYRICS_SUB_UPLOAD = '업로드',
   LYRICS_SUB_DEPLOY = '배포',
+  INDECISION = '결정장애',
 }
 
 enum OptionId {
