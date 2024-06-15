@@ -29,6 +29,7 @@ enum CommandName {
   LYRICS_SUB_UPLOAD = '업로드',
   LYRICS_SUB_DEPLOY = '배포',
   INDECISION = '결정장애',
+  REMIND = '리마인드',
 }
 
 enum OptionId {
@@ -48,6 +49,7 @@ enum ModalName {
   QNA_CHANGE = 'qna_change',
   PLAYLIST_ADD = 'playlist_add',
   NOTICE_ADD = 'notice_add',
+  REMIND_ADD = 'remind_add',
 }
 
 enum ModalOptionId {
@@ -63,6 +65,8 @@ enum ModalOptionId {
   NOTICE_MAIN_TEXT = 'notice_main_text',
   NOTICE_IMAGES = 'notice_images',
   NOTICE_START_DATE = 'notice_start_date',
+  REMIND_NAME = 'remind_name',
+  REMIND_BODY = 'remind_body',
 }
 
 export { CommandName, OptionId, ModalName, ModalOptionId };

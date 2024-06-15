@@ -5,6 +5,7 @@ import { playlistCommand } from './playlist';
 import { noticeCommand } from './notice';
 import { lyricsCommand } from './lyrics';
 import { indecisionCommand } from './indecision';
+import { remindCommand } from './remind';
 
 const slashCommandList: Array<SlashCommand> = [
   qnaCommand,
@@ -12,6 +13,7 @@ const slashCommandList: Array<SlashCommand> = [
   noticeCommand,
   lyricsCommand,
   indecisionCommand,
+  remindCommand,
 ];
 const slashCommands: Collection<string, SlashCommand> = new Collection<
   string,
