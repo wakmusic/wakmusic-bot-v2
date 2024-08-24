@@ -1,7 +1,7 @@
-version: "3.3"
+version: '3.3'
 services:
   wakmusic-bot:
-    image: wakmusic-bot:latest
+    image: eatcocoa/wakmusic-bot:latest
     build:
       context: .
       dockerfile: Dockerfile

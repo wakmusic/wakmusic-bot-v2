@@ -30,6 +30,8 @@ enum CommandName {
   LYRICS_SUB_DEPLOY = '배포',
   INDECISION = '결정장애',
   REMIND = '리마인드',
+  PROFILE_UPDATE = '프로필업데이트',
+  PROFILE_UPDATE_ALL = '전체프로필업데이트',
 }
 
 enum OptionId {

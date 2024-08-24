@@ -35,6 +35,9 @@ import { UserPlaylistPlaylistEntity } from '../entitys/main/userPlaylistPlaylist
 import { EventEntity } from '../entitys/app/event.entity';
 import { VersionEntity } from '../entitys/app/version.entity';
 import { LyricsEntity } from '../entitys/main/lyrics.entity';
+import { TeamMemberEntity } from '../entitys/new/team-member.entity';
+import { ImageVersionEntity } from '../entitys/new/image-version.entity';
+import { ImageEntity } from '../entitys/new/image.entity';
 
 dotenv.config();
 
@@ -96,6 +99,17 @@ const appDatabase: DataSource = new DataSource({
   entities: [EventEntity, VersionEntity],
 });
 
-const allDatabases: Array<DataSource> = [mainDatabase];
+const newDatabase: DataSource = new DataSource({
+  type: 'mysql',
+  host: process.env.NEW_DB_HOST || 'localhost',
+  port: parseInt(process.env.NEW_DB_PORT || '3306'),
+  username: process.env.NEW_DB_USER_NAME,
+  password: process.env.NEW_DB_USER_PASSWORD,
+  bigNumberStrings: false,
+  supportBigNumbers: true,
+  entities: [TeamMemberEntity, ImageEntity, ImageVersionEntity],
+});
+
+const allDatabases: Array<DataSource> = [mainDatabase, newDatabase];
 
 export { allDatabases };

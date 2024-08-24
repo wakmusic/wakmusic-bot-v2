@@ -23,6 +23,21 @@ export class FileService {
     });
   }
 
+  async upload(options: {
+    path: string;
+    data: Uint8Array;
+    mime?: string;
+  }): Promise<void> {
+    await this.r2Client.send(
+      new PutObjectCommand({
+        Bucket: process.env.R2_BUCKET_NAME,
+        Key: options.path,
+        Body: options.data,
+        ContentType: options.mime,
+      })
+    );
+  }
+
   async uploadImage(options: UploadOptions): Promise<string | null> {
     try {
       const fileName = this.createFileName(options.fileName, options.version);

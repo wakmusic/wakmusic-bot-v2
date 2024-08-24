@@ -22,7 +22,7 @@ const main = async () => {
   if (process.env.DEPLOY === 'true') {
     await deployCommands();
   }
-  client.login(process.env.TOKEN);
+  await client.login(process.env.TOKEN);
 };
 
 main();

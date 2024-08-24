@@ -11,7 +11,10 @@ const dataSourceHandler: Handler = {
       allDatabases.map((dataSource) => dataSource.initialize())
     );
     for (const dataSource of results) {
-      Container.set(`${dataSource.options.database}DataSource`, dataSource);
+      Container.set(
+        `${dataSource.options.database ?? ''}DataSource`,
+        dataSource
+      );
     }
     logger.info(`Successfully initialized ${results.length} DataSources.`);
   },

@@ -6,14 +6,18 @@ import { noticeCommand } from './notice';
 import { lyricsCommand } from './lyrics';
 import { indecisionCommand } from './indecision';
 import { remindCommand } from './remind';
+import { profileUpdateCommand } from './profile-update';
+import { profileUpdateAllCommand } from './profile-update-all';
 
 const slashCommandList: Array<SlashCommand> = [
-  qnaCommand,
-  playlistCommand,
-  noticeCommand,
-  lyricsCommand,
+  // qnaCommand,
+  // playlistCommand,
+  // noticeCommand,
+  // lyricsCommand,
   indecisionCommand,
-  remindCommand,
+  // remindCommand,
+  profileUpdateCommand,
+  profileUpdateAllCommand,
 ];
 const slashCommands: Collection<string, SlashCommand> = new Collection<
   string,
